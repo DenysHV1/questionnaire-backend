@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import {ctrlWrapper} from '../utils/ctrlWrapper.js'
 import { createQuizController, deleteQuizController, getQuizByIdController, getQuizController, updateQuizController } from '../controllers/quiz.js';
-import { validateBody } from '../../../HW/nodejs-hw-mongodb/src/middlewares/validateBody.js';
+import {validateBody} from '../middlewares/validateBody.js'
 import { createValidateScheme, updateValidateScheme } from '../validation/quiz.js';
 import { isValidId } from '../middlewares/isValidId.js';
 
