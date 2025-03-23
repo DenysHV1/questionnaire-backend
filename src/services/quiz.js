@@ -1,33 +1,15 @@
 import { QuizCollection } from '../db/models/quiz.js';
-import { Types } from 'mongoose';
 
-export const getAllQuiz = async () => {
-  const quiz = await QuizCollection.find();
-  return quiz;
-};
+export const getAllQuiz = async () => await QuizCollection.find();
 
-export const getQuizById = async (quizId) => {
-  const isValidId = Types.ObjectId.isValid(quizId);
-  if (!isValidId) {
-    return undefined;
-  }
-  const quiz = await QuizCollection.findById(quizId);
-  return quiz;
-};
+export const getQuizById = async (quizId) =>
+  await QuizCollection.findById(quizId);
 
-export const createQuiz = async (payload) => {
-  console.log(payload);
+export const createQuiz = async (payload) =>
+  await QuizCollection.create({ ...payload });
 
-  const quiz = await QuizCollection.create({...payload, questionsCount: payload.questions.length});
-  return quiz;
-};
-
-export const deleteQuiz = async (quizId) => {
-  const quiz = await QuizCollection.findOneAndDelete({
-    _id: quizId,
-  });
-  return quiz;
-};
+export const deleteQuiz = async (quizId) =>
+  await QuizCollection.findOneAndDelete({ _id: quizId });
 
 export const updateQuiz = async (quizId, payload, options = {}) => {
   const rawResult = await QuizCollection.findOneAndUpdate(

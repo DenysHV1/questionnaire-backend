@@ -47,6 +47,8 @@ export const createQuizController = async (req, res) => {
 
 export const deleteQuizController = async (req, res, next) => {
   const { quizId } = req.params;
+  console.log(req.params);
+
   const quiz = await deleteQuiz(quizId);
   if (!quiz) {
     next(createHttpError(404, 'Quiz not found'));
