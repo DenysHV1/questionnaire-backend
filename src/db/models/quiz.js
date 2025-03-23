@@ -10,14 +10,6 @@ const quizSchema = new Schema(
       type: String,
       required: true,
     },
-    questionsCount: {
-      type: Number,
-      required: true,
-    },
-    completionsCount: {
-      type: Number,
-      required: false,
-    },
     questions: [
       {
         id: {

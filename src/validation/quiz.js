@@ -3,8 +3,6 @@ import Joi from 'joi';
 export const createValidateScheme = Joi.object({
   name: Joi.string().required(),
   description: Joi.string().required(),
-  questionsCount: Joi.number(),
-  completionsCount: Joi.number().optional().default(0),
   questions: Joi.array()
     .items(
       Joi.object({
@@ -20,8 +18,6 @@ export const createValidateScheme = Joi.object({
 export const updateValidateScheme = Joi.object({
   name: Joi.string(),
   description: Joi.string(),
-  questionsCount: Joi.number(),
-  completionsCount: Joi.number().optional().default(0),
   questions: Joi.array().items(
     Joi.object({
       id: Joi.string(),
